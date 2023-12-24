@@ -1,4 +1,4 @@
-<div style="border-bottom: 2px solid #00ff00;"></div>
+<span style="color: blue;">---</span>
 
 
 **example**
