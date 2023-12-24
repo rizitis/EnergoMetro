@@ -1,1 +1,3 @@
+![kitrino](yellow.png)
+
 example
