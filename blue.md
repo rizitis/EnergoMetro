@@ -1,4 +1,3 @@
-<span style="color: blue;">---</span>
-
+![ble](blue.png)
 
 **example**
