@@ -16,3 +16,7 @@
 
 **Εδώ είναι οι 5 καλύτερες τιμές που βρήκα:**
 
+
+
+**[Oροι και Προϋποθέσεις](https://github.com/rizitis/EnergoMetro/blob/main/EnergoMetro_LICENSE.md) χρήσης.**
+
