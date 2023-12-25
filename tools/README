@@ -1,3 +1,4 @@
-convert md2pdf with pandoc 
+convert md2pdf with pandoc for greeks.
 example:
 pandoc orange.md -o orange.pdf --pdf-engine=xelatex -V mainfont="DejaVu Serif"
+Αν δεν ορίσουμε γραμματοσειρά που να υποστηριζει ελληνικούς χαρακτήρες το convert.sh θα σπάσει. 
