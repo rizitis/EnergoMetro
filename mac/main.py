@@ -1,22 +1,21 @@
-from kivy.app import App
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.button import Button
-from kivy.uix.label import Label
-import webbrowser
-import sys
+# Your Python script (color_web_app.py)
 
-class ColorWebApp(App):
-    def build(self):
-        # Create a BoxLayout with a vertical orientation
-        layout = BoxLayout(orientation='vertical', spacing=10)
+from PyQt5.QtWidgets import QApplication, QVBoxLayout, QLabel, QPushButton
+import sys
+import webbrowser
+
+class ColorWebApp:
+    def __init__(self):
+        self.app = QApplication(sys.argv)
+        self.setup_ui()
+
+    def setup_ui(self):
+        layout = QVBoxLayout()
 
         # Add a banner at the top
-        banner = Label(
-            text='ΠΑTΑΣ ΣΤΟ ΧΡΩΜΜΑ & ΒΛΕΠΕΙΣ ΤΙΜΕΣ',
-            size_hint_y=None,
-            height=40
-        )
-        layout.add_widget(banner)
+        banner = QLabel('ΠΑTΑΣ ΣΤΟ ΧΡΩΜΜΑ & ΒΛΕΠΕΙΣ ΤΙΜΕΣ')
+        banner.setFixedHeight(40)
+        layout.addWidget(banner)
 
         # Define labels and corresponding web pages
         labels_and_urls = {
@@ -28,51 +27,20 @@ class ColorWebApp(App):
 
         # Create buttons for each color with custom text labels
         for label, url in labels_and_urls.items():
-            button = Button(
-                text=label,
-                background_color=self.get_color_by_label(label),
-                on_press=self.on_button_press(url)
-            )
-            layout.add_widget(button)
+            button = QPushButton(label)
+            button.clicked.connect(lambda state, url=url: webbrowser.open(url))
+            layout.addWidget(button)
 
         # Add a button as a link to terms and conditions
-        terms_button = Button(
-            text="Oροι και Προϋποθέσεις χρήσης",
-            markup=True,
-            background_color=(1, 1, 1, 0),  # Transparent background
-            border=(0, 0, 0, 0)  # No border
-        )
-        terms_button.bind(on_press=self.on_terms_button_press)
-        layout.add_widget(terms_button)
+        terms_button = QPushButton("Oροι και Προϋποθέσεις χρήσης")
+        terms_button.clicked.connect(lambda: webbrowser.open("https://rizitis.github.io/privacy_policy.html"))
+        layout.addWidget(terms_button)
 
-        return layout
+        self.app.setLayout(layout)
 
-    def get_color_by_label(self, label):
-        # Return the corresponding color based on the label
-        color_mapping = {
-            'ΠΡΑΣΙΝΟ': (0, 1, 0),
-            'ΜΠΛΕ': (0, 0, 1),
-            'ΠΟΡΤΟΚΑΛΙ': (255, 0, 0),  # RGB for orange
-            'ΚΙΤΡΙΝΟ': (100, 100, 0),  # RGB for yellow
-        }
-        return color_mapping.get(label, (1, 1, 1))
-
-    def on_button_press(self, url):
-        # Callback function for button press
-        def callback(instance):
-            # Open the web page in the default web browser
-            try:
-                webbrowser.open(url)
-            except Exception as e:
-                print(f"Error opening URL: {e}", file=sys.stderr)
-        return callback
-
-    def on_terms_button_press(self, instance):
-        # Callback function for terms button press
-        try:
-            webbrowser.open("https://rizitis.github.io/privacy_policy.html")
-        except Exception as e:
-            print(f"Error opening URL: {e}", file=sys.stderr)
+    def run(self):
+        sys.exit(self.app.exec_())
 
 if __name__ == '__main__':
-    ColorWebApp().run()
+    app = ColorWebApp()
+    app.run()
