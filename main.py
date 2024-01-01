@@ -83,7 +83,7 @@ class ColorWebApp(App):
 
     def on_terms_button_press(self, instance):
         # Callback function for terms button press
-        webbrowser.open("https://rizitis.github.io/SofoRevma_LICENSE.pdf")
+        webbrowser.open("https://rizitis.github.io/privacy_policy.html")
 
 if __name__ == '__main__':
     ColorWebApp().run()
