@@ -29,7 +29,7 @@ source.include_exts = py,png,jpg,kv,atlas
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 0.5
+version = 1.1
 
 # (str) Application versioning (method 2)
 # version.regex = __version__ = ['"](.*)['"]
@@ -104,7 +104,7 @@ fullscreen = 0
 android.api = 33
 
 # (int) Minimum API your APK / AAB will support.
-android.minapi = 33
+android.minapi = 30
 
 # (int) Android SDK version to use
 android.sdk = 30
