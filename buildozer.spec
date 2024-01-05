@@ -29,7 +29,7 @@ source.include_exts = py,png,jpg,kv,atlas
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 1.1
+version = 1.9
 
 # (str) Application versioning (method 2)
 # version.regex = __version__ = ['"](.*)['"]
@@ -107,7 +107,7 @@ android.api = 33
 android.minapi = 30
 
 # (int) Android SDK version to use
-android.sdk = 30
+android.sdk = 33
 
 # (str) Android NDK version to use
 #android.ndk = 23b
